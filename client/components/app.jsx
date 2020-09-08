@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './header';
+import Container from './container';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -89,7 +90,7 @@ export default class App extends React.Component {
             Welcome to the Reitan Chat App!
             </h1>
           </div>
-          <div className='border m-2 h-75 bg-dark'></div>
+          <Container/>
         </div>
       </div>
     );
