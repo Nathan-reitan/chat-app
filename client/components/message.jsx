@@ -11,10 +11,9 @@ export default class Message extends React.Component {
 
   render() {
     return (
-      <div className='bg-primary w-25 rounded m-2 text-light'>
-        <div><p>{this.state.message}</p></div>
-        <div>{this.state.timeStamp}</div>
-
+      <div className='bg-primary w-25 rounded m-2 p-1 text-light'>
+        <div><p>{this.props.message}</p></div>
+        <div>{this.props.time}</div>
       </div>
     );
   }

@@ -6,7 +6,14 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'Chat App'
+      name: 'Chat App',
+      count: 4,
+      messages: [
+        { message: 'Hello, I am the chat app', timeStamp: '9/8/2020; 12:11', messageId: 1 },
+        { message: 'Hello, chat App.  How are you?', timeStamp: '9/8/2020; 12:12', messageId: 2 },
+        { message: 'I am well, how are you', timeStamp: '9/8/2020; 12:13', messageId: 3 },
+        { message: 'Well, thank you.', timeStamp: '9/8/2020; 12:14', messageId: 4 }
+      ]
     };
   }
 
@@ -90,7 +97,7 @@ export default class App extends React.Component {
             Welcome to the Reitan Chat App!
             </h1>
           </div>
-          <Container/>
+          <Container messages={this.state.messages}/>
         </div>
       </div>
     );
