@@ -82,14 +82,16 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Header/>
-        <div className="text-light text-center">
-          <h1>
+        <Header />
+        <div className='container vh-100'>
+          <div className="text-light text-center">
+            <h1>
             Welcome to the Reitan Chat App!
-          </h1>
+            </h1>
+          </div>
+          <div className='border m-2 h-75 bg-dark'></div>
         </div>
       </div>
-
     );
   }
 }
