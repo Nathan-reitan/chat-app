@@ -1,5 +1,5 @@
 import React from 'react';
-// import Header from './header';
+import Header from './header';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -82,6 +82,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
+        <Header/>
         <div className="text-light text-center"><h1>Disclaimer: This site is for demonstrative purposes only, DO NOT ENTER REAL INFORMATION INTO THE FORM ON THE CHECKOUT PAGE.</h1></div>
       </div>
 
