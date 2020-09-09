@@ -40,6 +40,19 @@ app.get('/api/products', (req, res, next) => {
     });
 });
 
+app.get('/api/messages', (req, res, next) => {
+  if (!req.session.cartId) {
+    return res.json([]);
+  } else {
+    db.query(`select *,
+              from "messages"
+           `)
+      .then(messages => {
+        return res.status(201).json(messages.rows[0]);
+      });
+  }
+});
+
 app.get('/api/products/:productId', (req, res, next) => {
   const { productId } = req.params;
   if (!parseInt(productId, 10)) {

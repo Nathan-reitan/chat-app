@@ -17,9 +17,9 @@ export default class App extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.getCartItems();
-  // }
+  componentDidMount() {
+    this.getMessages();
+  }
 
   // setView(name, params) {
   //   return this.setState(state => ({
@@ -30,20 +30,20 @@ export default class App extends React.Component {
   //   }));
   // }
 
-  // getCartItems() {
-  //   fetch('/api/cart')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       if (data.length === 0) {
-  //         return this.setState(() => ({
-  //           cart: []
-  //         }));
-  //       }
-  //       return this.setState(() => ({
-  //         cart: [data]
-  //       }));
-  //     });
-  // }
+  getMessages() {
+    fetch('/api/messages')
+      .then(response => response.json())
+      .then(data => {
+        if (data.length === 0) {
+          return this.setState(() => ({
+            messages: []
+          }));
+        }
+        return this.setState(() => ({
+          messages: [data]
+        }));
+      });
+  }
 
   // addCartItem(product) {
   //   const oldCart = this.state.cart.slice();
