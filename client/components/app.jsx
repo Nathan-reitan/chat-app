@@ -34,14 +34,15 @@ export default class App extends React.Component {
     fetch('/api/messages')
       .then(response => response.json())
       .then(data => {
-        if (data.length === 0) {
-          return this.setState(() => ({
-            messages: []
-          }));
-        }
-        return this.setState(() => ({
-          messages: [data]
-        }));
+        // console.log(data);
+        // if (data.length === 0) {
+        //   return this.setState(() => ({
+        //     messages: []
+        //   }));
+        // }
+        // return this.setState(() => ({
+        //   messages: [data]
+        // }));
       });
   }
 

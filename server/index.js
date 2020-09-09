@@ -41,16 +41,17 @@ app.get('/api/products', (req, res, next) => {
 });
 
 app.get('/api/messages', (req, res, next) => {
-  if (!req.session.cartId) {
-    return res.json([]);
-  } else {
-    db.query(`select *,
+  db.query(`select "message",
               from "messages"
            `)
-      .then(messages => {
-        return res.status(201).json(messages.rows[0]);
-      });
-  }
+    .then(messages => {
+      // return console.log(messages);
+      // return res.status(201).json(messages.rows[0]);
+    })
+    .catch(err => {
+      console.error(err);
+      return res.status(500).send('an error has occurred');
+    });
 });
 
 app.get('/api/products/:productId', (req, res, next) => {
