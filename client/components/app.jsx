@@ -34,7 +34,7 @@ export default class App extends React.Component {
         //   }));
         // }
         return this.setState(() => ({
-          messages: [data]
+          messages: data
         }));
       });
   }

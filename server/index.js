@@ -45,7 +45,8 @@ app.get('/api/messages', (req, res, next) => {
               from "messages"
            `)
     .then(messages => {
-      return res.status(201).json(messages.rows[0]);
+      // console.log(messages.rows);
+      return res.status(201).json(messages.rows);
     })
     .catch(err => {
       console.error(err);
