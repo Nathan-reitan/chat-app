@@ -41,12 +41,12 @@ app.get('/api/products', (req, res, next) => {
 });
 
 app.get('/api/messages', (req, res, next) => {
-  db.query(`select "message",
+  db.query(`select 'message'
               from "messages"
            `)
     .then(messages => {
-      // return console.log(messages);
-      // return res.status(201).json(messages.rows[0]);
+
+      return res.status(201).json(messages.rows[0]);
     })
     .catch(err => {
       console.error(err);
