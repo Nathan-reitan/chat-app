@@ -98,6 +98,7 @@ ALTER TABLE ONLY public.messages ALTER COLUMN "messageID" SET DEFAULT nextval('p
 
 COPY public.messages ("messageID", message, "createdAt") FROM stdin;
 1	Hello World!	2020-09-09 10:11:18.400673-07
+2	11:11	2020-09-09 11:11:59.436549-07
 \.
 
 
@@ -105,7 +106,7 @@ COPY public.messages ("messageID", message, "createdAt") FROM stdin;
 -- Name: messages_messageID_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."messages_messageID_seq"', 1, true);
+SELECT pg_catalog.setval('public."messages_messageID_seq"', 2, true);
 
 
 --

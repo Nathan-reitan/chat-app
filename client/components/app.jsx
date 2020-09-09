@@ -7,13 +7,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       name: 'Chat App',
-      count: 4,
-      messages: [
-        { message: 'Hello, I am the chat app', timeStamp: '9/8/2020; 12:11', messageId: 1 },
-        { message: 'Hello, chat App.  How are you?', timeStamp: '9/8/2020; 12:12', messageId: 2 },
-        { message: 'I am well, how are you', timeStamp: '9/8/2020; 12:13', messageId: 3 },
-        { message: 'Well, thank you.', timeStamp: '9/8/2020; 12:14', messageId: 4 }
-      ]
+      messages: []
     };
   }
 
@@ -34,15 +28,14 @@ export default class App extends React.Component {
     fetch('/api/messages')
       .then(response => response.json())
       .then(data => {
-        // console.log(data);
         // if (data.length === 0) {
         //   return this.setState(() => ({
         //     messages: []
         //   }));
         // }
-        // return this.setState(() => ({
-        //   messages: [data]
-        // }));
+        return this.setState(() => ({
+          messages: [data]
+        }));
       });
   }
 

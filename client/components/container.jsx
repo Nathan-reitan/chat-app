@@ -7,9 +7,9 @@ export default function Container(props) {
       {props.messages.map(message => {
         return (
           <Message
-            key={message.messageId}
+            key={message.messageID}
             message={message.message}
-            time={message.timeStamp}
+            time={message.createdAt}
           />
         );
       })

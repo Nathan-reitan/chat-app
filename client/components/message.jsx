@@ -1,20 +1,17 @@
 import React from 'react';
 
-export default class Message extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      message: 'tesing app',
-      timeStamp: 'date time'
-    };
-  }
+export default function Message(props) {
+  const stamp = props.time.split('T');
+  const date = stamp[0];
+  let time = stamp[1];
+  time = time.split('.');
+  time = time[0];
 
-  render() {
-    return (
-      <div className='bg-primary w-25 rounded m-2 p-1 text-light'>
-        <div><p>{this.props.message}</p></div>
-        <div>{this.props.time}</div>
-      </div>
-    );
-  }
+  return (
+    <div className='bg-primary w-25 rounded m-2 p-1 text-light'>
+      <div><p>{props.message}</p></div>
+      <div>{date}</div>
+      <div>{time}</div>
+    </div>
+  );
 }

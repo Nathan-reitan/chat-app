@@ -41,11 +41,10 @@ app.get('/api/products', (req, res, next) => {
 });
 
 app.get('/api/messages', (req, res, next) => {
-  db.query(`select 'message'
+  db.query(`select *
               from "messages"
            `)
     .then(messages => {
-
       return res.status(201).json(messages.rows[0]);
     })
     .catch(err => {
