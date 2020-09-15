@@ -40,6 +40,20 @@ app.get('/api/products', (req, res, next) => {
     });
 });
 
+app.get('/api/messages', (req, res, next) => {
+  db.query(`select *
+              from "messages"
+           `)
+    .then(messages => {
+      // console.log(messages.rows);
+      return res.status(201).json(messages.rows);
+    })
+    .catch(err => {
+      console.error(err);
+      return res.status(500).send('an error has occurred');
+    });
+});
+
 app.get('/api/products/:productId', (req, res, next) => {
   const { productId } = req.params;
   if (!parseInt(productId, 10)) {

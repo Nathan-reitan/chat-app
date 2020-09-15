@@ -1,17 +1,19 @@
 import React from 'react';
 import Header from './header';
+import Container from './container';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'Chat App'
+      name: 'Chat App',
+      messages: []
     };
   }
 
-  // componentDidMount() {
-  //   this.getCartItems();
-  // }
+  componentDidMount() {
+    this.getMessages();
+  }
 
   // setView(name, params) {
   //   return this.setState(state => ({
@@ -22,20 +24,20 @@ export default class App extends React.Component {
   //   }));
   // }
 
-  // getCartItems() {
-  //   fetch('/api/cart')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       if (data.length === 0) {
-  //         return this.setState(() => ({
-  //           cart: []
-  //         }));
-  //       }
-  //       return this.setState(() => ({
-  //         cart: [data]
-  //       }));
-  //     });
-  // }
+  getMessages() {
+    fetch('/api/messages')
+      .then(response => response.json())
+      .then(data => {
+        // if (data.length === 0) {
+        //   return this.setState(() => ({
+        //     messages: []
+        //   }));
+        // }
+        return this.setState(() => ({
+          messages: data
+        }));
+      });
+  }
 
   // addCartItem(product) {
   //   const oldCart = this.state.cart.slice();
@@ -82,14 +84,16 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Header/>
-        <div className="text-light text-center">
-          <h1>
+        <Header />
+        <div className='container vh-100'>
+          <div className="text-light text-center">
+            <h1>
             Welcome to the Reitan Chat App!
-          </h1>
+            </h1>
+          </div>
+          <Container messages={this.state.messages}/>
         </div>
       </div>
-
     );
   }
 }
